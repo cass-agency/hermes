@@ -1,0 +1,27 @@
+{
+  "name": "hermes-trismegistus",
+  "version": "1.0.0",
+  "description": "Alchemical Master NanoClaw Agent — ephemeris forecasts, herbal wisdom, and personal alchemy",
+  "scripts": {
+    "dev": "tsx watch src/server.ts",
+    "build": "tsc",
+    "start": "node dist/server.js",
+    "lint": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.36.3",
+    "astronomia": "^4.2.0",
+    "better-sqlite3": "^12.9.0",
+    "dotenv": "^16.4.5",
+    "express": "^4.18.2",
+    "node-cron": "^4.2.1"
+  },
+  "devDependencies": {
+    "@types/better-sqlite3": "^7.6.12",
+    "@types/express": "^4.17.21",
+    "@types/node": "^20.12.0",
+    "@types/node-cron": "^3.0.11",
+    "tsx": "^4.11.0",
+    "typescript": "^5.4.5"
+  }
+}
