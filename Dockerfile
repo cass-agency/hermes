@@ -2,23 +2,19 @@ FROM node:20-alpine
 
 WORKDIR /app
 
-# Install build dependencies for better-sqlite3
-RUN apk add --no-cache python3 make g++ wget
+# Build tools for better-sqlite3 native addon
+RUN apk add --no-cache python3 make g++
 
 COPY package*.json ./
-RUN npm ci --production=false
+RUN npm install --omit=dev --ignore-scripts=false
 
 COPY tsconfig.json ./
 COPY src ./src
 
 RUN npm run build
 
-# Prune dev dependencies
-RUN npm prune --production
-
 EXPOSE 8080
 
-ENV PORT=8080 \
-    NODE_ENV=production
+ENV PORT=8080 NODE_ENV=production
 
 CMD ["node", "dist/server.js"]
